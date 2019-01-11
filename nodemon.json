@@ -1,7 +1,7 @@
 {
     "env": {
-        "MONGO_USER": "admin",
-        "MONGO_PASSWORD": "admin",
+        "MONGO_USER": "daniloanobre",
+        "MONGO_PASSWORD": "daniloanobre",
         "MONGO_DEFAULT_DATABASE": "messages"
     }
 }

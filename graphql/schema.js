@@ -11,6 +11,12 @@ module.exports = buildSchema(`
         updatedAt: String!
     }
 
+    type Comment {
+        _id: ID!
+        description: String!
+        owner: User!
+    }
+
     type User {
         _id: ID!
         name: String!
@@ -18,6 +24,7 @@ module.exports = buildSchema(`
         password: String
         status: String!
         posts: [Post!]!
+        comments: [Comment!]!
     }
 
     type AuthData {
@@ -28,6 +35,11 @@ module.exports = buildSchema(`
     type PostData {
         posts: [Post!]!
         totalPosts: Int!
+    }
+
+    type CommentData {
+        comments: [Comment!]!
+        totalComments: Int!
     }
 
     input UserInputData {
@@ -42,9 +54,15 @@ module.exports = buildSchema(`
         imageUrl: String!
     }
 
+    input CommentInputData {
+        description: String!
+    }
+
     type RootQuery {
         login(email: String!, password: String!): AuthData!
         posts(page: Int): PostData!
+        comments(page: Int): CommentData!
+        comment(id: ID!): Comment!
         post(id: ID!): Post!
         user: User!
     }
@@ -52,8 +70,11 @@ module.exports = buildSchema(`
     type RootMutation {
         createUser(userInput: UserInputData): User!
         createPost(postInput: PostInputData): Post!
+        addComment(commentInput: CommentInputData): Comment!
         updatePost(id: ID!, postInput: PostInputData): Post!
+        updateComment(id: ID!, commentInput: CommentInputData): Comment!
         deletePost(id: ID!): Boolean
+        deleteComment(id: ID!): Boolean
         updateStatus(status: String!): User!
     }
 
