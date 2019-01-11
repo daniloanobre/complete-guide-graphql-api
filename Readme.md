@@ -11,14 +11,14 @@ GraphQL API was developed with node v11.6.0
 
 ### Installation
 
-```sh
+```bash
 $ cd complete-guide-graphql-api
 $ npm install
 $ npm start:dev
 ```
 For production environments...
 
-```sh
+```bash
 $ npm install --production
 $ NODE_ENV=production node app
 ```
@@ -29,9 +29,10 @@ Build a backend api using graphql. The application it will be access by an user 
 ### The Application Goals
 
 The GraphQL Api have resources for.
-Authentication
-Post
-Comment
+  *  User
+  * Authentication
+  * Post
+  * Comment
 
 ### Queries
 
@@ -88,7 +89,7 @@ Fetch comments
 CreatePost mutation
 mutation {
   createPost(postInput: {title: "my title" , 
-  content: this is the content",
+  content: "this is the content",
   imageUrl: "some image" }) {
     _id
     title
